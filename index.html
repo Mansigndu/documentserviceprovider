@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Samarth Seva | Government Service Portal</title>
+    <!-- Tailwind CSS + Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        body { background: #f8fafc; }
+        .service-card, .service-list-item { transition: all 0.25s ease; cursor: pointer; }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1); }
+        .service-list-item:hover { background-color: #f3f4f6; transform: translateX(6px); border-left-color: #4f46e5; }
+        input:focus, select:focus, textarea:focus { box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2); border-color: #4f46e5; outline: none; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #e2e8f0; }
+        ::-webkit-scrollbar-thumb { background: #a5b4fc; border-radius: 8px; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-5 md:px-10 py-3 flex justify-between items-center">
+          <a href="./index.html" class="flex items-center space-x-2">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-file-alt text-indigo-600 text-2xl"></i>
+                <span class="font-bold text-xl tracking-tight bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text text-transparent">Document Service Provider</span>
+            </div></a>
+            <nav class="hidden md:flex items-center space-x-8 text-gray-700 font-medium">
+                <a href="#home" class="hover:text-indigo-600 transition">Home</a>
+                <a href="#services" class="hover:text-indigo-600 transition">Services</a>
+                <a href="#services-list" class="hover:text-indigo-600 transition">All Services</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="mobileMenuBtn"><i class="fas fa-bars text-gray-700 text-2xl"></i></button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 bg-white border-t border-gray-100">
+            <a href="#home" class="block py-2 text-gray-700 hover:text-indigo-600">Home</a>
+            <a href="#services" class="block py-2 text-gray-700 hover:text-indigo-600">Services</a>
+            <a href="#services-list" class="block py-2 text-gray-700 hover:text-indigo-600">All Services</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-12 md:py-20">
+            <div class="absolute top-0 right-0 w-80 h-80 bg-indigo-200 rounded-full blur-3xl opacity-30 -z-10"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-200 rounded-full blur-3xl opacity-30 -z-10"></div>
+            <div class="max-w-7xl mx-auto px-5 md:px-10 flex flex-col-reverse md:flex-row items-center gap-12">
+                <div class="flex-1 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 bg-indigo-100 text-indigo-800 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
+                        <i class="fas fa-bolt text-yellow-500"></i>
+                        <span>Instant e-Service Assistance</span>
+                    </div>
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-800">
+                        Apply for 
+                        <span class="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                            GST, Driving Licence, Voter ID
+                        </span> & More
+                    </h1>
+                    <p class="text-gray-500 text-lg mt-4 max-w-xl mx-auto md:mx-0">
+                        Simple, paperless & fast assistance for all your government document needs. Trusted by thousands across India.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center md:justify-start mt-6">
+                        <a href="#services" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold shadow-lg transition flex items-center gap-2">
+                            Explore Services <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#services-list" class="px-6 py-3 bg-white border border-gray-300 rounded-xl font-medium text-gray-700 hover:border-indigo-400 hover:text-indigo-600 transition">
+                            View All Services
+                        </a>
+                    </div>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-6 mt-8 text-sm text-gray-500">
+                        <span>✔ 100% Secure</span>
+                        <span>✔ Fast Processing</span>
+                        <span>✔ Expert Support</span>
+                    </div>
+                </div>
+                <div class="flex-1 flex justify-center">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952" alt="Document Service" class="w-72 md:w-96 rounded-2xl shadow-2xl object-cover"/>
+                        <div class="absolute -bottom-5 -left-5 bg-white rounded-xl shadow-lg px-4 py-2 flex items-center gap-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span class="text-sm font-medium text-gray-700">Verified Service</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid Section (CARDS) -->
+        <section id="services" class="py-16 bg-gradient-to-b from-white to-gray-50">
+            <div class="max-w-7xl mx-auto px-5 md:px-10">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Our Core <span class="text-indigo-600">Services</span></h2>
+                    <div class="w-24 h-1 bg-indigo-500 mx-auto rounded-full mt-3"></div>
+                    <p class="text-gray-500 mt-4">Click on any card to apply — you will be taken to the dedicated form page</p>
+                </div>
+
+                <!-- 5 Service Cards - YOU CAN REPLACE THE LINKS BELOW -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+                    
+                    <!-- Card 1: GST Registration -->
+                    <a href="#" class="service-card group bg-white rounded-2xl p-6 text-center shadow-md hover:shadow-2xl border border-gray-200 transition-all duration-300 hover:-translate-y-2 block" data-service="gst">
+                        <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+                            <i class="fas fa-file-invoice-dollar text-3xl text-indigo-700"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">GST Registration</h3>
+                        <p class="text-gray-500 text-sm mt-2">15-digit GSTIN • Business Tax</p>
+                        <span class="inline-block mt-2 text-indigo-600 text-xs font-semibold">Apply Now →</span>
+                    </a>
+
+                    <!-- Card 2: Driving Licence -->
+                    <a href="#" class="service-card group bg-white rounded-2xl p-6 text-center shadow-md hover:shadow-2xl border border-gray-200 transition-all duration-300 hover:-translate-y-2 block" data-service="dl">
+                        <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+                            <i class="fas fa-id-card text-3xl text-blue-700"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">Driving Licence</h3>
+                        <p class="text-gray-500 text-sm mt-2">Learner / Permanent DL</p>
+                        <span class="inline-block mt-2 text-blue-600 text-xs font-semibold">Apply Now →</span>
+                    </a>
+
+                    <!-- Card 3: Voter ID -->
+                    <a href="#" class="service-card group bg-white rounded-2xl p-6 text-center shadow-md hover:shadow-2xl border border-gray-200 transition-all duration-300 hover:-translate-y-2 block" data-service="voter">
+                        <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+                            <i class="fas fa-check-circle text-3xl text-green-700"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">Voter ID</h3>
+                        <p class="text-gray-500 text-sm mt-2">New & Correction</p>
+                        <span class="inline-block mt-2 text-green-600 text-xs font-semibold">Apply Now →</span>
+                    </a>
+
+                    <!-- Card 4: Udyam Aadhaar -->
+                    <a href="#" class="service-card group bg-white rounded-2xl p-6 text-center shadow-md hover:shadow-2xl border border-gray-200 transition-all duration-300 hover:-translate-y-2 block" data-service="udyam">
+                        <div class="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+                            <i class="fas fa-chart-line text-3xl text-amber-700"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">Udyam Aadhaar</h3>
+                        <p class="text-gray-500 text-sm mt-2">MSME Registration</p>
+                        <span class="inline-block mt-2 text-amber-600 text-xs font-semibold">Apply Now →</span>
+                    </a>
+
+                    <!-- Card 5: Gumasta License -->
+                    <a href="#" class="service-card group bg-white rounded-2xl p-6 text-center shadow-md hover:shadow-2xl border border-gray-200 transition-all duration-300 hover:-translate-y-2 block" data-service="gumasta">
+                        <div class="w-16 h-16 bg-rose-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+                            <i class="fas fa-store text-3xl text-rose-700"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">Gumasta License</h3>
+                        <p class="text-gray-500 text-sm mt-2">Shop License</p>
+                        <span class="inline-block mt-2 text-rose-600 text-xs font-semibold">Apply Now →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES LIST SECTION (LI Elements) -->
+        <section id="services-list" class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-5 md:px-10">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">All Services <span class="text-indigo-600">(List View)</span></h2>
+                    <div class="w-24 h-1 bg-indigo-500 mx-auto rounded-full mt-3"></div>
+                    <p class="text-gray-500 mt-4">Click on any service below to apply</p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden">
+                    <div class="bg-indigo-50 px-6 py-4 border-b">
+                        <p class="font-semibold text-gray-700"><i class="fas fa-list-ul mr-2"></i> Click any service to open its application form</p>
+                    </div>
+                    <ul class="divide-y divide-gray-100">
+                        <!-- LIST ITEM 1: GST -->
+                        <li class="service-list-item flex items-center justify-between p-5 cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-indigo-500" data-service="gst">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center"><i class="fas fa-file-invoice-dollar text-xl text-indigo-700"></i></div>
+                                <div><h3 class="font-bold text-gray-800 text-lg">GST Registration</h3><p class="text-sm text-gray-500">15-digit GSTIN | Business Tax Registration</p></div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </li>
+                        <!-- LIST ITEM 2: Driving Licence -->
+                        <li class="service-list-item flex items-center justify-between p-5 cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-indigo-500" data-service="dl">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center"><i class="fas fa-id-card text-xl text-blue-700"></i></div>
+                                <div><h3 class="font-bold text-gray-800 text-lg">Driving Licence</h3><p class="text-sm text-gray-500">Learner / Permanent DL + Slot Booking</p></div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </li>
+                        <!-- LIST ITEM 3: Voter ID -->
+                        <li class="service-list-item flex items-center justify-between p-5 cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-indigo-500" data-service="voter">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center"><i class="fas fa-check-circle text-xl text-green-700"></i></div>
+                                <div><h3 class="font-bold text-gray-800 text-lg">Voter ID</h3><p class="text-sm text-gray-500">New Voter ID / Corrections / e-EPIC</p></div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </li>
+                        <!-- LIST ITEM 4: Udyam Aadhaar -->
+                        <li class="service-list-item flex items-center justify-between p-5 cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-indigo-500" data-service="udyam">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center"><i class="fas fa-chart-line text-xl text-amber-700"></i></div>
+                                <div><h3 class="font-bold text-gray-800 text-lg">Udyam Aadhaar</h3><p class="text-sm text-gray-500">MSME Registration, Instant Approval</p></div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </li>
+                        <!-- LIST ITEM 5: Gumasta License -->
+                        <li class="service-list-item flex items-center justify-between p-5 cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-indigo-500" data-service="gumasta">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center"><i class="fas fa-store text-xl text-rose-700"></i></div>
+                                <div><h3 class="font-bold text-gray-800 text-lg">Gumasta License</h3><p class="text-sm text-gray-500">Shop & Establishment License</p></div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-5 md:px-10 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">How It <span class="text-indigo-600">Works</span></h2>
+                <p class="text-gray-500 mt-3 mb-10">Simple 3-step process to get your document done</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="p-6 bg-white rounded-2xl shadow hover:shadow-xl transition"><div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div><h3 class="font-bold text-lg">Choose Service</h3><p class="text-gray-500 text-sm mt-2">Select the document service you need</p></div>
+                    <div class="p-6 bg-white rounded-2xl shadow hover:shadow-xl transition"><div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div><h3 class="font-bold text-lg">Fill Application</h3><p class="text-gray-500 text-sm mt-2">Complete the form with your details</p></div>
+                    <div class="p-6 bg-white rounded-2xl shadow hover:shadow-xl transition"><div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div><h3 class="font-bold text-lg">Get Assistance</h3><p class="text-gray-500 text-sm mt-2">Our expert will contact you</p></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-5 md:px-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-center md:text-left">
+                <div><h2 class="text-2xl font-bold mb-3 bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">Samarth Seva</h2><p class="text-sm text-gray-400">We provide easy, fast & reliable assistance for government document services.</p></div>
+                <div><h3 class="text-xl font-semibold mb-3 text-indigo-400">Quick Links</h3><ul class="space-y-2 text-sm"><li><a href="#home" class="hover:text-indigo-400 transition">Home</a></li><li><a href="#services" class="hover:text-indigo-400 transition">Services</a></li><li><a href="#services-list" class="hover:text-indigo-400 transition">All Services</a></li></ul></div>
+                <div><h3 class="text-xl font-semibold mb-3 text-indigo-400">Services</h3><ul class="space-y-2 text-sm"><li class="cursor-pointer hover:text-indigo-400 transition" data-service="gst">GST Registration</li><li class="cursor-pointer hover:text-indigo-400 transition" data-service="dl">Driving Licence</li><li class="cursor-pointer hover:text-indigo-400 transition" data-service="voter">Voter ID</li><li class="cursor-pointer hover:text-indigo-400 transition" data-service="udyam">Udyam Aadhaar</li><li class="cursor-pointer hover:text-indigo-400 transition" data-service="gumasta">Gumasta License</li></ul></div>
+                <div><h3 class="text-xl font-semibold mb-3 text-indigo-400">Contact</h3><p class="text-sm">📍 Punjab, India</p><p class="text-sm mt-1">📞 +91 XXXXX XXXXX</p><p class="text-sm mt-1">✉️ support@samarthseva.com</p></div>
+            </div>
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-sm text-gray-400">© 2026 Samarth Seva | Assisted service platform, not a government website.</div>
+        </div>
+    </footer>
+
+    <script>
+      
+        const SERVICE_LINKS = {
+            gst: "./gst.html",        // ← GST form page link
+            dl: "./dl.html",          // ← Driving Licence form page link
+            voter: "./voter.html",              // ← Voter ID form page link
+            udyam: "./udyam.html",         // ← Udyam Aadhaar form page link
+            gumasta: "./gumasta.html"      // ← Gumasta License form page link
+        };
+        
+      
+        // Function to handle navigation
+        function navigateToService(serviceKey) {
+            const link = SERVICE_LINKS[serviceKey];
+            if (link && link !== "#" && link !== "") {
+                window.location.href = link;
+            } else {
+                // Fallback alert if link not configured
+                alert(`Service page not configured yet.\n\nPlease add your link for "${serviceKey}" in the SERVICE_LINKS section at the bottom of the code.\n\nCurrent link: ${link}`);
+            }
+        }
+        
+        // Attach click handlers to ALL cards (anchor tags with .service-card)
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                e.preventDefault();
+                const service = card.getAttribute('data-service');
+                if (service) navigateToService(service);
+            });
+        });
+        
+        // Attach click handlers to LIST ITEMS (li elements)
+        document.querySelectorAll('.service-list-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const service = item.getAttribute('data-service');
+                if (service) navigateToService(service);
+            });
+        });
+        
+        // Attach click handlers to footer service links
+        document.querySelectorAll('footer li[data-service]').forEach(link => {
+            link.addEventListener('click', () => {
+                const service = link.getAttribute('data-service');
+                if (service) navigateToService(service);
+            });
+        });
+        
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === "#") return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    // Close mobile menu if open
+                    mobileMenu?.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
