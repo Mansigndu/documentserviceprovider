@@ -31,6 +31,9 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-up { animation: fadeInUp 0.5s ease-out forwards; }
+        body,html {
+            overflow-x: hidden;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -38,11 +41,9 @@
     <!-- Navigation Bar -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-5 md:px-10 py-3 flex justify-between items-center">
-           <a href="./index.html" class="flex items-center space-x-2">
-            <div class="flex items-center space-x-2">
-                <i class="fas fa-file-alt text-amber-600 text-2xl"></i>
-                <span class="font-bold text-xl tracking-tight bg-amber-600 bg-clip-text text-transparent">Document Service Provider</span>
-            </div></a>
+            <a href="./index.html" class="flex items-center">
+      <img src="./images/documentlogo.jpeg" alt="logo" class="h-20 w-auto">
+    </a>
             <nav class="hidden md:flex items-center space-x-8 text-gray-700 font-medium">
                 <a href="#overview" class="hover:text-amber-600 transition">Overview</a>
                 <a href="#process" class="hover:text-amber-600 transition">Process</a>
@@ -125,49 +126,74 @@
         </section>
 
         <!-- Application Process Steps -->
-        <section id="process" class="py-16 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-5 md:px-10">
-                <div class="text-center max-w-2xl mx-auto mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Registration <span class="gradient-text">Process</span></h2>
-                    <div class="w-24 h-1 bg-amber-500 mx-auto rounded-full mt-3"></div>
-                    <p class="text-gray-500 mt-4">Simple 4-step process to get your Udyam Registration Certificate</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                    <div class="progress-step bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition">
-                        <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-amber-600">1</span>
-                        </div>
-                        <div class="text-2xl font-bold text-amber-600 mb-2">25%</div>
-                        <h3 class="font-semibold text-gray-800">Fill Online Form</h3>
-                        <p class="text-sm text-gray-500 mt-2">Submit business & Aadhaar details</p>
-                    </div>
-                    <div class="progress-step bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition">
-                        <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-amber-600">2</span>
-                        </div>
-                        <div class="text-2xl font-bold text-amber-600 mb-2">50%</div>
-                        <h3 class="font-semibold text-gray-800">Upload Documents</h3>
-                        <p class="text-sm text-gray-500 mt-2">PAN, Aadhaar, business proof</p>
-                    </div>
-                    <div class="progress-step bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition">
-                        <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-amber-600">3</span>
-                        </div>
-                        <div class="text-2xl font-bold text-amber-600 mb-2">75%</div>
-                        <h3 class="font-semibold text-gray-800">Verification</h3>
-                        <p class="text-sm text-gray-500 mt-2">Auto-verification via government databases</p>
-                    </div>
-                    <div class="progress-step bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-green-600">4</span>
-                        </div>
-                        <div class="text-2xl font-bold text-green-600 mb-2">100%</div>
-                        <h3 class="font-semibold text-gray-800">Get Udyam Certificate</h3>
-                        <p class="text-sm text-gray-500 mt-2">Instant certificate download</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+       <section id="process" class="py-12 sm:py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-10">
+
+    <!-- Heading -->
+    <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
+        Registration <span class="text-amber-600">Process</span>
+      </h2>
+      <div class="w-20 sm:w-24 h-1 bg-amber-500 mx-auto rounded-full mt-3"></div>
+      <p class="text-gray-500 mt-4 text-sm sm:text-base">
+        Simple 4-step process to get your Udyam Registration Certificate
+      </p>
+    </div>
+
+    <!-- Steps -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Step 1 -->
+      <div class="bg-white rounded-xl p-5 sm:p-6 text-center shadow-md hover:shadow-xl transition">
+        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="text-xl sm:text-2xl font-bold text-amber-600">1</span>
+        </div>
+        <div class="text-xl sm:text-2xl font-bold text-amber-600 mb-2">25%</div>
+        <h3 class="font-semibold text-gray-800 text-sm sm:text-base">Fill Online Form</h3>
+        <p class="text-xs sm:text-sm text-gray-500 mt-2">
+          Submit business & Aadhaar details
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="bg-white rounded-xl p-5 sm:p-6 text-center shadow-md hover:shadow-xl transition">
+        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="text-xl sm:text-2xl font-bold text-amber-600">2</span>
+        </div>
+        <div class="text-xl sm:text-2xl font-bold text-amber-600 mb-2">50%</div>
+        <h3 class="font-semibold text-gray-800 text-sm sm:text-base">Upload Documents</h3>
+        <p class="text-xs sm:text-sm text-gray-500 mt-2">
+          PAN, Aadhaar & business proof
+        </p>
+      </div>
+
+      <!-- Step 3 (FIXED) -->
+      <div class="bg-white rounded-xl p-5 sm:p-6 text-center shadow-md hover:shadow-xl transition">
+        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="text-xl sm:text-2xl font-bold text-amber-600">3</span>
+        </div>
+        <div class="text-xl sm:text-2xl font-bold text-amber-600 mb-2">75%</div>
+        <h3 class="font-semibold text-gray-800 text-sm sm:text-base">Make Payment</h3>
+        <p class="text-xs sm:text-sm text-gray-500 mt-2">
+          Payment options will be shown after document verification
+        </p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="bg-white rounded-xl p-5 sm:p-6 text-center shadow-md hover:shadow-xl transition">
+        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="text-xl sm:text-2xl font-bold text-green-600">4</span>
+        </div>
+        <div class="text-xl sm:text-2xl font-bold text-green-600 mb-2">100%</div>
+        <h3 class="font-semibold text-gray-800 text-sm sm:text-base">Get Udyam Certificate</h3>
+        <p class="text-xs sm:text-sm text-gray-500 mt-2">
+          Instant certificate download
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
         <!-- Why Choose Us + Value of Udyam -->
         <section class="py-16 bg-white">
