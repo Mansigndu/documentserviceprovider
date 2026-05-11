@@ -98,14 +98,32 @@
 <option value="gazette">📜 Gazette Certificate</option>
                                 </select>
                             </div>
-
                             <div>
+        <label class="block text-gray-700 font-semibold mb-2">
+            <i class="fas fa-sync-alt text-indigo-500 mr-1"></i> Application Type *
+        </label>
+
+        <select required
+            class="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50 focus:bg-white transition">
+
+            <option value="" disabled selected>– Select Type –</option>
+            <option value="new">New Application</option>
+            <option value="renew">Document Renewal</option>
+
+        </select>
+    </div>
+
+
+
+
+                            
+                        </div>
+                        <div>
                                 <label class="block text-gray-700 font-semibold mb-2">
                                     <i class="fas fa-user text-indigo-500 mr-1"></i> Full Name *
                                 </label>
                                 <input type="text" id="fullName" required class="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50">
                             </div>
-                        </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
@@ -130,10 +148,36 @@
                             <input type="text" id="address" required class="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50">
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <input type="date" class="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50">
-                            <input type="text" placeholder="Notes" class="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50">
-                        </div>
+                       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <!-- Date of Birth -->
+    <div>
+        <label class="block text-gray-700 font-semibold mb-2">
+            <i class="fas fa-calendar-alt text-indigo-500 mr-1"></i> Date of Birth *
+        </label>
+
+        <input 
+            type="text"
+            placeholder="Select Date of Birth"
+            onfocus="(this.type='date')"
+            class="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50 focus:bg-white transition"
+        >
+    </div>
+
+    <!-- Notes -->
+    <div>
+        <label class="block text-gray-700 font-semibold mb-2">
+            <i class="fas fa-sticky-note text-indigo-500 mr-1"></i> Notes
+        </label>
+
+        <input 
+            type="text" 
+            placeholder="Enter Notes"
+            class="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50 focus:bg-white transition"
+        >
+    </div>
+
+</div>
 
                         <div class="flex items-start gap-3">
                             <input type="checkbox" required>
@@ -308,18 +352,33 @@ document.querySelectorAll("#mobile-menu a").forEach(link => {
   });
 });
 
-// Close menu on scroll (FIXED)
+
+// Close menu on scroll
 window.addEventListener("scroll", () => {
   if (!mobileMenu.classList.contains("hidden")) {
+
     mobileMenu.classList.add("hidden");
 
-    // Reset icon
     icon.classList.add("fa-bars");
     icon.classList.remove("fa-times");
   }
 });
+const header = document.querySelector("header");
 
+let lastScrollY = window.scrollY;
 
+window.addEventListener("scroll", () => {
+
+  if (window.scrollY > lastScrollY) {
+    // Scrolling Down
+    header.style.transform = "translateY(-100%)";
+  } else {
+    // Scrolling Up
+    header.style.transform = "translateY(0)";
+  }
+
+  lastScrollY = window.scrollY;
+});
 /* ================= FORM ================= */
 
 const form = document.getElementById("applicationForm");
